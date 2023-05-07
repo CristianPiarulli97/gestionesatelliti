@@ -22,7 +22,7 @@
 
 			<div class='card'>
 				<div class='card-header'>
-					<h5>Vuoi eliminare questo elemento?</h5>
+					<h5>Elemento da eliminare</h5>
 				</div>
 
 

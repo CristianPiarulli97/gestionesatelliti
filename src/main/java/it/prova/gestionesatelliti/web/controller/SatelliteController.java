@@ -50,6 +50,31 @@ public class SatelliteController {
 		return "satellite/list";
 	}
 
+	@GetMapping("/show/{idSatellite}")
+	public String show(@PathVariable(required = true) Long idSatellite, Model model) {
+		model.addAttribute("show_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
+		return "satellite/show";
+	}
+
+	@GetMapping("/delete/{idSatellite}")
+	public String delete(@PathVariable(required = true) Long idSatellite, Model model) {
+		model.addAttribute("delete_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
+		return "satellite/delete";
+	}
+
+	@PostMapping("/delete")
+	public String delete(Long idSatellite, RedirectAttributes redirectAttrs) {
+		satelliteService.rimuovi(idSatellite);
+		redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
+		return "redirect:/satellite";
+	}
+
+	@GetMapping("/edit/{idSatellite}")
+	public String edit(@PathVariable(required = true) Long idSatellite, Model model) {
+		model.addAttribute("edit_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
+		return "satellite/edit";
+	}
+
 	@GetMapping("/insert")
 	public String create(Model model) {
 		model.addAttribute("insert_satellite_attr", new Satellite());
@@ -80,31 +105,7 @@ public class SatelliteController {
 
 	}
 
-	@GetMapping("/show/{idSatellite}")
-	public String show(@PathVariable(required = true) Long idSatellite, Model model) {
-		model.addAttribute("show_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
-		return "satellite/show";
-	}
-
-	@GetMapping("/delete/{idSatellite}")
-	public String delete(@PathVariable(required = true) Long idSatellite, Model model) {
-		model.addAttribute("delete_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
-		return "satellite/delete";
-	}
-
-	@PostMapping("/delete")
-	public String delete(Long idSatellite, RedirectAttributes redirectAttrs) {
-		satelliteService.rimuovi(idSatellite);
-		redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
-		return "redirect:/satellite";
-	}
-
-	@GetMapping("/edit/{idSatellite}")
-	public String edit(@PathVariable(required = true) Long idSatellite, Model model) {
-		model.addAttribute("edit_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
-		return "satellite/edit";
-	}
-
+	
 	@PostMapping("/edit")
 	public String edit(@Valid @ModelAttribute("edit_satellite_attr") Satellite satellite, BindingResult result,
 			RedirectAttributes redirectAttrs) {

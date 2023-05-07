@@ -22,17 +22,6 @@ public class SatelliteServiceImpl implements SatelliteService {
 	@Autowired
 	private SatelliteRepository repository;
 
-	@Override
-	@Transactional(readOnly = true)
-	public List<Satellite> listAllElements() {
-		return (List<Satellite>) repository.findAll();
-	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public Satellite caricaSingoloElemento(Long id) {
-		return repository.findById(id).orElse(null);
-	}
 
 	@Override
 	@Transactional
@@ -54,6 +43,19 @@ public class SatelliteServiceImpl implements SatelliteService {
 
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<Satellite> listAllElements() {
+		return (List<Satellite>) repository.findAll();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Satellite caricaSingoloElemento(Long id) {
+		return repository.findById(id).orElse(null);
+	}
+
+	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Satellite> findByExample(Satellite example) {

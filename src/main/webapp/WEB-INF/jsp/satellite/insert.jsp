@@ -21,6 +21,8 @@
 	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
+			
+			
 			<!-- Begin page content -->
 			<main class="flex-shrink-0">
 			  <div class="container">
@@ -32,6 +34,7 @@
 							Attenzione!! Sono presenti errori di validazione
 						</div>
 					</spring:hasBindErrors>
+			  
 			  
 			  		<div class="alert alert-danger alert-dismissible fade show ${errorMessage==null?'d-none':'' }" role="alert">
 					  ${errorMessage}

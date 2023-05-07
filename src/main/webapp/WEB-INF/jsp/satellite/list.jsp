@@ -44,8 +44,6 @@
 					aria-label="Close"></button>
 			</div>
 
-
-
 			<div class='card'>
 				<div class='card-header'>
 					<h5>Lista dei risultati</h5>

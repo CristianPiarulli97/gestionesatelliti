@@ -31,6 +31,7 @@
 							<form method="post" action="${pageContext.request.contextPath}/satellite/list" class="row g-3" >
 							
 							
+							
 								<div class="col-md-6">
 									<label for="denominazione" class="form-label">Denominazione </label>
 									<input type="text" name="denominazione" id="denominazione" class="form-control" placeholder="Inserire la denominazione"  >
